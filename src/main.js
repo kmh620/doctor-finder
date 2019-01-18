@@ -11,24 +11,26 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 $(document).ready(function() {
     $("#search-submit").click(function() {
-     let doctorName = $("#doctor-search-input").val();
+     let searchWord = $("#doctor-search-input").val();
      $("#doctor-search-input").val();
-     console.log(doctorName);
+     console.log(searchWord);
 
        let newDoc = new Doctor();
-       let docPromise = newDoc.searchForDoctor(doctorName);
+       let docPromise = newDoc.searchForDoctor(searchWord);
 
        let response;
        docPromise.then(function (response) {
          let body = JSON.parse(response);
+         console.log(body);
 
            $('#doctor-name').text(body.data[0].profile.first_name, body.data[0].profile.last_name);
-           console.log(body.data[0].profile.first_name, body.data[0].profile.last_name);
-           $("#doctor-patient-status").text(body.data.accepts_new_patients);
-           $("#doctor-address").text();
-           $("#doctor-phone").text();
-           $("#doctor-website").text();
-
+           //image_url
+           $("#doctor-patient-status").text(body.data[0].practices[0].accepts_new_patients);
+           $("#doctor-specialty").text(body.data[0].specialties);
+           $("#doctor-address").text(body.data[0].practices[0].visit_address);
+           $("#doctor-phone").text(body.data[0].practices[0].phones);
+           // $("#doctor-website").text(body.data[0].profile.);
+           console.log(body.data[0].profile.first_name, body.data[0].profile.last_name, body.data[0].practices[0].accepts_new_patients, body.data[0].specialties, body.data[0].practices[0].visit_address, body.data[0].practices[0].phones);
        }, function(error) {
           $('.showErrors').text(`There was an error processing your request: ${error.message}`);
         });

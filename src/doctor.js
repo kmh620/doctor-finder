@@ -9,10 +9,10 @@ export class Doctor {
 
   }
 
-  searchForDoctor(doctorName) {
+  searchForDoctor(searchWord) {
     return new Promise((resolve, reject) => {
       let request = new XMLHttpRequest();
-      let nameUrl = `https://api.betterdoctor.com/2016-03-01/doctors?name=${doctorName}&location=or-portland&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
+      let nameUrl = `https://api.betterdoctor.com/2016-03-01/doctors?query=${searchWord}&location=or-portland&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
 
       request.onload = function () {
         if (this.status === 200){
