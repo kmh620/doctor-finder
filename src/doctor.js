@@ -25,7 +25,6 @@ export class Doctor {
 
       request.open("GET", nameUrl, true);
       request.send();
-      console.log(request);
 
     });
   }

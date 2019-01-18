@@ -21,15 +21,17 @@ $(document).ready(function() {
        let response;
        docPromise.then(function (response) {
          let body = JSON.parse(response);
-         $('#doctor-name').text(`${response.data.profile.first_name}` , `${response.data.profile.last_name}`);
-         console.log(body.data.name);
-         $("#doctor-patient-status").text(body.data.accepts_new_patients);
-         $("#doctor-address").text();
-         $("#doctor-phone").text();
-         $("#doctor-website").text();
+
+           $('#doctor-name').text(body.data[0].profile.first_name, body.data[0].profile.last_name);
+           console.log(body.data[0].profile.first_name, body.data[0].profile.last_name);
+           $("#doctor-patient-status").text(body.data.accepts_new_patients);
+           $("#doctor-address").text();
+           $("#doctor-phone").text();
+           $("#doctor-website").text();
+
        }, function(error) {
           $('.showErrors').text(`There was an error processing your request: ${error.message}`);
         });
-    
+
     });
 });
