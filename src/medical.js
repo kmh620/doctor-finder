@@ -1,14 +1,15 @@
 import { apiKey as ENV} from './.env';
 
-export class Doctor {
-  constructor(name) {
-    this.name = name;
+export class Medical {
+  constructor(concern) {
+    this.concern = concern;
   }
 
   promise(){
     return new Promise(function(resolve, reject) => {
       let request = new XMLHttpRequest();
-      const nameUrl = "https://api.betterdoctor.com/2016-03-01/doctors?name=`${this.name}`&location=or-portland&skip=0&limit=10&user_key=`${exports.apiKey}`";
+      const concernUrl = "https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=`${this.concern}`&location=or-portland&skip=0&limit=10&user_key=`${exports.apiKey}`";
+
 
 
       request.onreadystatechange = function() {
@@ -20,7 +21,7 @@ export class Doctor {
         }
       }
 
-      request.open("GET", nameUrl, true);
+      request.open("GET", concernUrl, true);
       request.send();
 
   }
