@@ -23,14 +23,14 @@ $(document).ready(function() {
          let body = JSON.parse(response);
          console.log(body);
 
-           $('#doctor-name').text(body.data[0].profile.first_name, body.data[0].profile.last_name);
+           $('#doctor-name').text(body.data[0].profile.first_name + " " + body.data[0].profile.last_name);
            //image_url
            $("#doctor-patient-status").text(body.data[0].practices[0].accepts_new_patients);
-           $("#doctor-specialty").text(body.data[0].specialties);
-           $("#doctor-address").text(body.data[0].practices[0].visit_address);
-           $("#doctor-phone").text(body.data[0].practices[0].phones);
+           $("#doctor-specialty").text(body.data[0].specialties[0].uid);
+           $("#doctor-address").text(body.data[0].practices[0].visit_address.street + " " + body.data[0].practices[0].visit_address.city + ", " + body.data[0].practices[0].visit_address.state );
+           $("#doctor-phone").text(body.data[0].practices[0].phones[0].number);
            // $("#doctor-website").text(body.data[0].profile.);
-           console.log(body.data[0].profile.first_name, body.data[0].profile.last_name, body.data[0].practices[0].accepts_new_patients, body.data[0].specialties, body.data[0].practices[0].visit_address, body.data[0].practices[0].phones);
+
        }, function(error) {
           $('.showErrors').text(`There was an error processing your request: ${error.message}`);
         });
