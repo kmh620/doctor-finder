@@ -26,18 +26,21 @@ $(document).ready(function() {
        let response;
        docPromise.then(function (response) {
          let body = JSON.parse(response);
-         $('#doctor-name').text(`${body.doctorName}`);
-         $("#doctor-patient-status").text(body.accepts_new_patients);
+         $('#doctor-name').text(`${body.response.name}`);
+         console.log(body.data.name);
+         $("#doctor-patient-status").text(body.data.accepts_new_patients);
          $("#doctor-address").text();
          $("#doctor-phone").text();
          $("#doctor-website").text();
           }, function(error) {
           $('.showErrors').text(`There was an error processing your request: ${error.message}`);
 
-          doctorResult.push();
 
-         console.log(newDoc);
-         console.log(docPromise);
+          const getElements = function(response) {
+              $(".doctor-display").attr("src", response.data[0].images.original.url);
+              console.log(response.data[0].images.original.url);
+            }
+
     });
 
      //   let searchResults = response.results;

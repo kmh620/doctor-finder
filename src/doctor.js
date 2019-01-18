@@ -1,7 +1,7 @@
 
 export class Doctor {
-  constructor(doctorName, status, address, phone, website) {
-    this.doctorName = doctorName;
+  constructor(name, status, address, phone, website) {
+    this.name = name;
     this.status;
     this.address;
     this.phone;
@@ -12,11 +12,12 @@ export class Doctor {
   searchForDoctor(doctorName) {
     return new Promise((resolve, reject) => {
       let request = new XMLHttpRequest();
-      let nameUrl = `https://api.betterdoctor.com/2016-03-01/doctors?name=${this.doctorName}&location=or-portland&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
+      let nameUrl = `https://api.betterdoctor.com/2016-03-01/doctors?name=${this.name}&location=or-portland&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
 
       request.onload = function () {
         if (this.status === 200){
           resolve(request.response);
+          getElements(response);
         } else {
           reject(Error(request.statusText));
         }
