@@ -6,9 +6,20 @@
 </head>
 <body>
   <div class="container">
+    <h2>Doctor Search</h2>
     <div class="row">
       <div class="col-md-12 text-center">
-        <h2>Doctor Search</h2>
+        <label>Search for Doctors by <i>Name</i> or <i>Keyword</i>:</label>
+        <input id="doctor-search-input" type="text" name="" value="">
+        <br>
+        <button id="search-submit" type="submit" name="button">Submit</button>
+        <ul class="list-unstyled" id="search-results"></ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+
         <div class="doctor-display">
           <!-- <img id="doctor-image" src="" alt=""> -->
           <h3 id="doctor-name"></h3>
@@ -22,22 +33,10 @@
           <p id="doctor-website"></p> -->
           <label for="doctor-patient-status">Accepting New Patients:</label>
           <p id="doctor-patient-status"></p>
+          <br>
+          <button id="next-submit" type="submit" name="button">Next</button>
         </div>
       </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <label>Search by Doctor:</label>
-        <input id="doctor-search-input" type="text" name="" value="">
-        <br>
-        <!-- <label>Search by Medical Issue:</label>
-        <input id="medical-search-input" type="text" name="" value=""> -->
-        <button id="search-submit" type="submit" name="button">Submit</button>
-        <ul class="list-unstyled" id="search-results"></ul>
-      </div>
-
     </div>
 
 
