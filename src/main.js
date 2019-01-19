@@ -22,17 +22,24 @@ $(document).ready(function() {
          console.log(body);
           $('.doctor-display').show();
           let i = 0;
+          $('#doctor-name').text(body.data[i].profile.first_name + " " + body.data[i].profile.last_name);
+          $("#doctor-patient-status").text(body.data[i].practices[0].accepts_new_patients);
+          $("#doctor-specialty").text(body.data[i].specialties[0].uid);
+          $("#doctor-address").text(body.data[i].practices[0].visit_address.street + " " + body.data[i].practices[0].visit_address.city + ", " + body.data[i].practices[0].visit_address.state );
+          $("#doctor-phone").text(body.data[i].practices[0].phones[0].number);
 
           $("#next-submit").click(function() {
             i += 1;
            $('#doctor-name').text(body.data[i].profile.first_name + " " + body.data[i].profile.last_name);
-           $("#doctor-patient-status").text(body.data[i].practices[i].accepts_new_patients);
-           $("#doctor-specialty").text(body.data[i].specialties[i].uid);
-           $("#doctor-address").text(body.data[i].practices[i].visit_address.street + " " + body.data[i].practices[i].visit_address.city + ", " + body.data[i].practices[i].visit_address.state );
-           $("#doctor-phone").text(body.data[i].practices[i].phones[i].number);
-           // $("#doctor-website").text(body.data[0].profile.);
-
-          })
+           $("#doctor-patient-status").text(body.data[i].practices[0].accepts_new_patients);
+           $("#doctor-specialty").text(body.data[i].specialties[0].uid);
+           $("#doctor-address").text(body.data[i].practices[0].visit_address.street + " " + body.data[i].practices[0].visit_address.city + ", " + body.data[i].practices[0].visit_address.state );
+           $("#doctor-phone").text(body.data[i].practices[0].phones[0].number);
+           // $("#doctor-website").text(body.data[0].profile.); couldn't find
+           if(i === 9) {
+             i = 0;
+           }
+        })
 
 
        }, function(error) {
