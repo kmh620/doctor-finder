@@ -10,8 +10,7 @@
 Doctor Finder is a site designed for searching the Portland Area for doctors using the Better Doctor API. A user can input a name or keyword into the search field to receive a list of doctors in the area including information about each doctor.
 
 ## Known Bugs
-None at this time.
-
+If results of search are less than 10 the next button loop stops working.
 
 ## Setup/Installation Requirements
 
@@ -19,7 +18,7 @@ None at this time.
 * Run npm install from terminal
 * Generate API key from BetterDoctor.com
 * Create .env file and save API key as exports.apiKey
-* Run npm run start to use site 
+* Run npm run start to use site
 
 ## Technologies Used
 

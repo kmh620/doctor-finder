@@ -6,7 +6,6 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
 $(document).ready(function() {
     $("#search-submit").click(function() {
      let searchWord = $("#doctor-search-input").val();
@@ -40,7 +39,6 @@ $(document).ready(function() {
              i = 0;
            }
         })
-
 
        }, function(error) {
           $('.showErrors').text(`There was an error processing your request: ${error.message}`);
